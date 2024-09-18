@@ -1,18 +1,34 @@
-import React from 'react';
-import { useGetProfileQuery } from '../../redux/api/userApi';
-const Users = () => {
-    const { data } = useGetProfileQuery();
+import { Table, notification } from 'antd';
+import { useEffect, useState } from 'react';
+import { useUserQuery } from '../../redux/api/usersApi';
 
-    return (
+const Users = () => {
+  const [userData, setUserData] = useState([]);
+  const { data: users, } = useUserQuery();
+
+  const column = [
+
+    {
+      title: 'Username',
+      dataIndex: 'username',
+    },
+   
+  ];
+
+  useEffect(() => {
+    if (users?.payload) {
+      setUserData(users.payload);
+    } 
+    
+  }, [users]);
+
+  return (
+    <>
         <div>
-            {
-                data && data.payload &&
-                (user => (
-                    <div key={user._id}>{user.first_name}</div>
-                ))
-            }
+          <Table columns={column} dataSource={userData} />
         </div>
-    );
-}
+    </>
+  );
+};
 
 export default Users;

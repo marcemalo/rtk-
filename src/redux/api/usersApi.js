@@ -1,13 +1,14 @@
 import { api } from "./index";
 
-const usersApi = api.injectEndpoints({
-  endpoints: (build) => ({
-    getUsers: build.query({
-      query: () => ({
-        url: "/admin/users"
+const userApi = api.injectEndpoints({
+   endpoints: (build) => ({
+      user: build.query({
+         query: () => ({
+            url: "/admin/registered-users",
+            method: "GET"
+         }),
       }),
-    })
-  }),
+   }),
 });
 
-export const { useGetUsersQuery } = usersApi;
+export const { useUserQuery } = userApi

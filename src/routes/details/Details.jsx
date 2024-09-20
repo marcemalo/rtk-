@@ -10,12 +10,12 @@ const Details = () => {
     const {data} = useGetProductDetailsQuery(id);
     
   return (
-    <div>
+    <div className='my-10 ml-14'>
         <Container>
            {
             data && data.payload &&
             <div className="flex mt-10 gap-10">
-            <div className="w-1/2 bg-blue-500">
+            <div className="w-1/2 bg-yellow-400">
             <Carousel arrows >
                 {
                     data && data?.payload.product_images.map(image => 

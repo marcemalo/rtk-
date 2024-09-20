@@ -31,8 +31,9 @@ const Login = () => {
   };
 
   return (
-    <Form
-      className="p-4 w-full"
+   
+      <Form
+      className="p-4 w-full "
       name="basic"
       layout="vertical"
       initialValues={{
@@ -76,6 +77,7 @@ const Login = () => {
       </Form.Item>
         <Text>Don't have an account? <Link to="/auth/signup">Sign Up</Link></Text>
     </Form>
+
   );
 };
 export default Login;

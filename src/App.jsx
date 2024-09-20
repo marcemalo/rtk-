@@ -4,8 +4,10 @@ import RouteController from "./routes"
 function App() {
   return (
     <>
+      <div  className="flex ">
       <Header/>
       <RouteController/>
+      </div>
     </>
   )
 }

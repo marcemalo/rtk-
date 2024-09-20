@@ -24,7 +24,7 @@ const Users = () => {
 
   return (
     <>
-        <div>
+        <div className='w-full'>
           <Table columns={column} dataSource={userData} />
         </div>
     </>

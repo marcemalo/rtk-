@@ -2,15 +2,20 @@ import { useGetProductsQuery } from '../../redux/api/productsApi'
 import { Button, Card } from 'antd';
 import { Container } from '../../utils';
 import { Link } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
 
 const { Meta } = Card;
 
 const Products = () => {
     const {data} = useGetProductsQuery();
+   
   return (
-    <div className='my-10'>
+    <div className='my-10 ml-14'>
        <Container>
         <div  className='grid grid-cols-4 gap-4'>
+          
         {
               data && data.payload &&
               data.payload.map(product => 
@@ -29,7 +34,10 @@ const Products = () => {
                 <br />
                 <strong>${product.sale_price}</strong>
                 <br />
-                <Button className='w-full mt-4' type='primary'>Add to cart</Button>
+                <Button className='w-full mt-4 bg-yellow-400' type='primary'>Add to cart</Button>
+                <Button className=" border-none absolute top-2 right-2 text-xl text-red-500  transition" onClick={() => dispatch(addToFavorite(product))}>
+                    {product.likedby ? <AiFillHeart /> : <AiOutlineHeart />}
+                </Button>
               </Card>
               )
           }

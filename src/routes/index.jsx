@@ -12,12 +12,17 @@ const Private = lazy(() => import('../routes/private/Private'));
 const Details = lazy(() => import('../routes/details/Details'));
 const Search = lazy(() => import('../routes/search/Search'));
 const Users = lazy(() => import('../routes/users/Users'));
+const Like = lazy(() => import('../routes/like/Like'));
 
 const RouteController = () => {
   return useRoutes([
     {
         path: "/",
         element: <Suspense><Home/></Suspense>
+    },
+    {
+        path: "/like",
+        element: <Suspense><Like/></Suspense>
     },
     {
         path: "/profile",

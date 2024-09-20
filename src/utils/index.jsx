@@ -2,7 +2,9 @@ import { Suspense } from "react"
 
 const SuspenseComponent = ({children}) => {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">
+      <div class="loader"></div>
+    </div>}>
         {children}
     </Suspense>
   )
